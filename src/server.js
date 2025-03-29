@@ -37,6 +37,7 @@ export const setupServer = () => {
         status: 404,
         massege: 'Contact not found',
       });
+      return;
     }
     res.json({
       status: 200,
