@@ -13,7 +13,7 @@ export const errorHandler = (error, req, res, next) => {
   }
 
   res.status(status).json({
-    status: 500,
+    status: status,
     message: message,
     data: error.message,
   });

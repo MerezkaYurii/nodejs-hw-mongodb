@@ -12,7 +12,7 @@ export const setupServer = () => {
 
   app.use(express.json());
 
-  app.use(logger);
+  // app.use(logger);
 
   app.use('/contacts', contactsRouter);
 
