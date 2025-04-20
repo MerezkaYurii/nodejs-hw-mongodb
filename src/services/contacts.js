@@ -13,8 +13,8 @@ export const getContacts = async ({
 
   const contactQuery = ContactCollecion.find();
 
-  if (filter.useId) {
-    contactQuery.where('useId').equals(filter.useId);
+  if (filter.userId) {
+    contactQuery.where('userId').equals(filter.userId);
   }
 
   if (filter.type) {
@@ -23,13 +23,11 @@ export const getContacts = async ({
   if (filter.isFavourite) {
     contactQuery.where('isFavourite').equals(filter.isFavourite);
   }
-
+  const contactsCount = await ContactCollecion.find().countDocuments();
   const data = await contactQuery
     .skip(skip)
     .limit(perPage)
     .sort({ [sortBy]: sortOrder });
-
-  const contactsCount = await ContactCollecion.find().countDocuments();
 
   const paginationData = calculatePaginationData(contactsCount, perPage, page);
   return {
@@ -38,8 +36,8 @@ export const getContacts = async ({
   };
 };
 
-export const getContactsById = async (userId) => {
-  const contact = await ContactCollecion.findById(userId);
+export const getContactsById = async (contactId, userId) => {
+  const contact = await ContactCollecion.findOne({ _id: contactId, userId });
   return contact;
 };
 
