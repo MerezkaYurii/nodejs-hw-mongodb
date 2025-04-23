@@ -23,7 +23,9 @@ export const getContacts = async ({
   if (filter.isFavourite) {
     contactQuery.where('isFavourite').equals(filter.isFavourite);
   }
-  const contactsCount = await ContactCollecion.find().countDocuments();
+  const contactsCount = await ContactCollecion.find()
+    .merge(contactQuery)
+    .countDocuments();
   const data = await contactQuery
     .skip(skip)
     .limit(perPage)
