@@ -14,7 +14,7 @@
       "url": "http://localhost:3000"
     },
     {
-      "url": "https://example.com/api/v1"
+      "url": "https://nodejs-hw-mongodb-contacts-exgi.onrender.com/api-docs"
     }
   ],
   "tags": [
@@ -228,6 +228,11 @@
                       "personal"
                     ],
                     "example": "home"
+                  },
+                  "photo": {
+                    "description": "Contact's photo",
+                    "type": "string",
+                    "example": "https://res.cloudinary.com/dfe0byy8i/image/upload/v1745685307/iggkqtox…"
                   }
                 }
               }
@@ -384,7 +389,7 @@
         "requestBody": {
           "required": true,
           "content": {
-            "application/json": {
+            "multipart/formdata": {
               "schema": {
                 "type": "object",
                 "properties": {
@@ -417,6 +422,11 @@
                       "personal"
                     ],
                     "example": "home"
+                  },
+                  "photo": {
+                    "description": "Contact's photo",
+                    "type": "string",
+                    "example": "https://res.cloudinary.com/dfe0byy8i/image/upload/v1745685307/iggkqtox…"
                   }
                 }
               }

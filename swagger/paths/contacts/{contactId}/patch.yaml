@@ -14,7 +14,7 @@ parameters:
 requestBody:
   required: true
   content:
-    application/json:
+    multipart/formdata:
       schema:
         type: object
         properties:
@@ -39,7 +39,10 @@ requestBody:
             type: string
             enum: ['work', 'home', 'personal']
             example: 'home'
-
+          photo:
+            description: "Contact's photo"
+            type: string
+            example: https://res.cloudinary.com/dfe0byy8i/image/upload/v1745685307/iggkqtox…
 responses:
   '200':
     description: Contact successfully updated
