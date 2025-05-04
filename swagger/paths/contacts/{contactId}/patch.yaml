@@ -42,6 +42,7 @@ requestBody:
           photo:
             description: "Contact's photo"
             type: string
+            format: binary
             example: https://res.cloudinary.com/dfe0byy8i/image/upload/v1745685307/iggkqtox…
 responses:
   '200':
